@@ -43,10 +43,13 @@ class users_controller extends base_controller {
         echo '</pre>';          
     }
 
-    public function login() {
+    public function login($error = NULL) {
         # Setup view
         $this->template->content = View::instance('v_users_login');
         $this->template->title   = "Login";
+
+        # Pass data to the view
+        $this->template->content->error = $error;
 
         # Render template
         echo $this->template;
@@ -72,7 +75,7 @@ class users_controller extends base_controller {
         # If we didn't find a matching token in the database, it means login failed
         if(!$token) {
             # Send them back to the login page
-            Router::redirect("/users/login/");
+            Router::redirect("/users/login/error");
 
         # But if we did, login succeeded! 
         } else {
@@ -85,7 +88,7 @@ class users_controller extends base_controller {
             param 3 = when to expire
             param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
             */
-            setcookie("token", $token, strtotime('+1 year'), '/');
+            setcookie("token", $token, strtotime('+2 weeks'), '/');
 
             # Send them to the main page - or whever you want them to go
             Router::redirect("/");
@@ -125,6 +128,42 @@ class users_controller extends base_controller {
 
         # Render template
         echo $this->template;
+    }
+
+    public function p_favorite($arg) {
+        # Make sure user is logged in if they want to use anything in this controller
+        if(!$this->user) {
+            die("Please log in to favorite a piece. <a href='/users/login'>Login</a>");
+        }
+
+        if(!$arg) {
+            die("Please click on a piece to favorite it. <a href='/gallery/browse'>Browse</a>");
+        }
+
+        # query the database for the favorited faucet's faucet_id
+        $q = "SELECT faucet_id
+        FROM faucets
+        WHERE serial_no = '".$arg."'";
+
+        $faucet_id = DB::instance(DB_NAME)->select_field($q);
+
+        # Make sure that the user has not already favorited this item
+        # Search the db for this user and faucet in the same post
+        # Retrieve if exists
+        $q = "SELECT user_id  
+            FROM users_faucets
+            WHERE user_id = '".$this->user->user_id."' AND faucet_id = '".$faucet_id."'";
+
+        $duplicates = DB::instance(DB_NAME)->select_field($q);
+        # If we didn't find this serial number in the database...
+        if(!$duplicates) {
+
+        # build an array with the values to be inserted
+        $fav_array = Array("user_id" => $this->user->user_id, "faucet_id" => $faucet_id);
+        # insert values
+        $user_faucet_id = DB::instance(DB_NAME)->insert('users_faucets', $fav_array); 
+        Router::redirect('/favorite');
+        }
     }
 
 } # end of the class
