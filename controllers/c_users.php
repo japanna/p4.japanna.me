@@ -130,6 +130,40 @@ class users_controller extends base_controller {
         echo $this->template;
     }
 
+    public function favorite() {
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+        Router::redirect('/users/login');
+        }
+        # If they weren't redirected away, continue:
+       
+        # Set up the View
+        $this->template->content = View::instance('v_users_favorite');
+        $this->template->title = "My favorites";
+ 
+        # Build the query
+        
+        $q = 'SELECT *
+            FROM faucets
+            INNER JOIN users_faucets
+            ON faucets.faucet_id = users_faucets.faucet_id
+            WHERE users_faucets.user_id = '.$this->user->user_id.'';
+
+        # Run the query
+        $items = DB::instance(DB_NAME)->select_rows($q);
+
+        # store the number of favorites
+        $no_of_favs = count($items);
+
+        
+        # Pass data to the View
+        $this->template->content->items = $items;
+        $this->template->content->no_of_favs = $no_of_favs;
+
+        # Render the View
+        echo $this->template;
+    }
+
     public function p_favorite($arg) {
         # Make sure user is logged in if they want to use anything in this controller
         if(!$this->user) {
@@ -162,8 +196,25 @@ class users_controller extends base_controller {
         $fav_array = Array("user_id" => $this->user->user_id, "faucet_id" => $faucet_id);
         # insert values
         $user_faucet_id = DB::instance(DB_NAME)->insert('users_faucets', $fav_array); 
-        Router::redirect('/favorite');
+        Router::redirect('/users/favorite');
         }
+    }
+
+    public function p_unfavorite($arg) {
+        
+        # query the database for the un-favorited faucet's faucet_id
+        $q = "SELECT faucet_id
+        FROM faucets
+        WHERE serial_no = '".$arg."'";
+
+        $faucet_id = DB::instance(DB_NAME)->select_field($q);
+
+        # Delete this connection
+        $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND faucet_id = '.$faucet_id;
+        DB::instance(DB_NAME)->delete('users_faucets', $where_condition);
+
+        # Send them back
+        Router::redirect("/users/favorite");
     }
 
 } # end of the class
