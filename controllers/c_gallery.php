@@ -11,7 +11,6 @@ class gallery_controller extends base_controller {
         parent::__construct();
     } 
 
-
 /* upload() lets a user with admin credentials upload new items */
 
     public function upload() {
@@ -34,13 +33,14 @@ class gallery_controller extends base_controller {
         if($this->user->name != "Supersecretuser") {
             Router::redirect('/');
         }
-		# If they weren't redirected away, continue:
+
+       	# If they weren't redirected away, continue:
 
         # Make sure that necessary form fields are filled out (also done client side)
         if(ctype_space($_POST['serial_no']) OR ctype_space($_POST['color'])
-            OR ctype_space($_POST['overall_height_in']) OR ctype_space($_POST['spout_height_in']) 
-            OR ctype_space($_POST['projection_in']) OR ctype_space($_POST['description']) 
-            OR ctype_space($_POST['img_front']) OR ctype_space($_POST['img_side'])) {
+            OR ctype_space($_POST['overall_height_in']) 
+            OR ctype_space($_POST['description']) 
+            OR ctype_space($_POST['img_front'])) {
             # If any of the fields are empty, display error message
             Router::redirect("/users/signup/error/empty"); 
 		} else {
@@ -59,33 +59,46 @@ class gallery_controller extends base_controller {
 	        $_POST['overall_height_cm']  = ($_POST['overall_height_in'] * 2.54);
 	        $_POST['spout_height_cm'] = ($_POST['spout_height_in'] * 2.54);
 	        $_POST['projection_cm'] = ($_POST['projection_in'] * 2.54);
-	        # store image file names
-	        $images = Array("img_front" => $_POST['serial_no']."f", "img_side" => $_POST['serial_no']."s");
-
-	        # Insert data into database
-	        # Note we didn't have to sanitize any of the data because we're using the insert and update methods which does it for us
-	        $faucet_id = DB::instance(DB_NAME)->insert('faucets', $_POST); 
-	        DB::instance(DB_NAME)->update("faucets", $images, "WHERE faucet_id = $faucet_id");
+	        $_POST['major_diameter_cm'] = ($_POST['major_diameter_in'] * 2.54);
+	        $_POST['minor_diameter_cm'] = ($_POST['minor_diameter_in'] * 2.54);
 	        
 	        # in order to upload more than one image at at time:
 	        # make two arrays out of $_FILES items (because upload() expects an array)
 	   		$front[0] = $_FILES[img_front];
 	        $side[0] = $_FILES[img_side];
-	    
-	       	
-	       	# Upload faucet images to server
-	       	# frontal image
-	        Upload::upload($front, "/uploads/faucets/", array("jpg"), $_POST['serial_no']."f");
-	        # side image
-	        Upload::upload($side, "/uploads/faucets/", array("jpg"), $_POST['serial_no']."s");
+ 
+	        # store and upload one or two file names, depending on how many were provided by admin
+	        # if a second image has been provided
+	        if(!isset($side[0][name])) {
+	        	# store both in DB
+		        $images = Array("img_front" => $_POST['serial_no']."f", "img_side" => $_POST['serial_no']."s");
+		        # upload both
+		    	# frontal image
+		        Upload::upload($front, "/uploads/faucets/", array("jpg"), $_POST['serial_no']."f");
+		    	# side image
+		        Upload::upload($side, "/uploads/faucets/", array("jpg"), $_POST['serial_no']."s");
+	        }
+	        # else store and upload only the first
+	    	else {
+	    		# store only the first file name
+	    		$images = Array("img_front" => $_POST['serial_no']."f", "img_side" => NULL);
+		        # If there is less than two images, only upload one
+		        Upload::upload($front, "/uploads/faucets/", array("jpg"), $_POST['serial_no']."f");
+		    } 
+		
+	        # Insert data into database
+	        # Note we didn't have to sanitize any of the data because we're using the insert and update methods which does it for us
+	        $faucet_id = DB::instance(DB_NAME)->insert('faucets', $_POST); 
+	        DB::instance(DB_NAME)->update("faucets", $images, "WHERE faucet_id = $faucet_id");
+	       
 	        $serial_no = $_POST['serial_no'];
-	        # redirect to the uploaded faucet's browse page
+	        # redirect to the uploaded item's browse page
 	        Router::redirect("/gallery/item/$serial_no");
 	        
 	        } else {
 	            Router::redirect("/users/signup/error/serial_no"); 
 	        }
-	    }
+	    } 
 	}
 /*---------------------------------------------------------------
 browse() takes care of displaying the whole gallery 
