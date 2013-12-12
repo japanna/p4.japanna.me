@@ -19,8 +19,33 @@ class users_controller extends base_controller {
     }
 
     public function p_signup() {
+        # Make sure user can't access /users/p_signup/ without submitting the form
+        if(empty($_POST['email'])) {
+        die("Please submit email address. <a href='/users/signup'>Sign up</a>");
+        }
 
-        # More data we want stored with the user
+        # If they weren't redirected away, continue:
+
+        # Make sure that all of the form fields are filled out (also done client side)
+        if(ctype_space($_POST['email']) OR ctype_space($_POST['password'])
+            OR ctype_space($_POST['name'])) {
+            # If any of the fields are empty, display error message
+            Router::redirect("/users/signup/error/empty"); 
+        } else {
+            # Make sure that the provided email is not already in database
+            
+            # Search the db for this email 
+            # Retrieve if exists
+            $q = "SELECT email 
+            FROM users 
+            WHERE email = '".$_POST['email']."'";
+
+            $email = DB::instance(DB_NAME)->select_field($q);
+
+        # If we didn't find this email in the database, sign up
+        if(!$email) {
+
+        # Store the time that the account was created and modified
         $_POST['created']  = Time::now();
         $_POST['modified'] = Time::now();
 
@@ -33,14 +58,25 @@ class users_controller extends base_controller {
         # Insert this user into the database
         $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
-        # For now, just confirm they've signed up - 
-        # You should eventually make a proper View for this
-        echo 'You\'re signed up';
+        # User is automatically logged in after signing up
+        setcookie("token", $_POST['token'], strtotime('+4 weeks'), '/');
 
-        # Dump out the results of POST to see what the form submitted
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';          
+        # send signup confirmation email (+1 feature #1) 
+            $to[] = Array("name" => $_POST['name'], "email" => $_POST['email']);
+            $from = Array("name" => APP_NAME, "email" => APP_EMAIL);
+            $subject = $_POST['name']." just signed up for Glass Faucet Gallery!";
+            $body = $_POST['name'].",  welcome to Glass Faucet.";
+            $cc  = "";
+            $bcc = "";
+            //$email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+
+        # Redirect to start page
+        Router::redirect("/");
+
+        } else {
+            Router::redirect("/users/signup/error/email"); 
+        }
+        }       
     }
 
     public function login($error = NULL) {
@@ -133,7 +169,7 @@ class users_controller extends base_controller {
     public function favorite() {
         # If user is blank, they're not logged in; redirect them to the login page
         if(!$this->user) {
-        Router::redirect('/users/login');
+        die("Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a>");
         }
         # If they weren't redirected away, continue:
        
@@ -167,7 +203,7 @@ class users_controller extends base_controller {
     public function p_favorite($arg) {
         # Make sure user is logged in if they want to use anything in this controller
         if(!$this->user) {
-            die("Please log in to favorite a piece. <a href='/users/login'>Login</a>");
+            die("Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a>");
         }
 
         if(!$arg) {
@@ -219,5 +255,82 @@ class users_controller extends base_controller {
         # Send them back
         Router::redirect("/users/favorite");
     }
+
+/*---------------------------------------------------------------
+contact() sends admin an email from user. 
+----------------------------------------------------------------*/
+    public function contact($arg){
+        # Setup view
+        $this->template->content = View::instance('v_users_contact');
+        $this->template->title   = "Contact";
+
+        # Build the query to show this faucet
+        $q = "SELECT *
+        FROM faucets
+        WHERE serial_no = '".$arg."'";
+
+        # Run the query
+        $items = DB::instance(DB_NAME)->select_rows($q);
+
+        # Pass data to the View
+        $this->template->content->items = $items;
+        $this->template->content->error = $error;        
+
+        # Render template
+        echo $this->template;
+    }
+
+    public function p_contact($arg){
+        if(!$arg) {
+            die("Sorry. We can't do that. <a href='/'>Home</a>");
+        }
+         # if user is logged in
+        if($this->user) {
+
+            # send email to admin
+            $to[] = Array("name" => APP_NAME, "email" => APP_EMAIL);
+            $from = Array("name" => $this->user->name, "email" => $this->user->email);
+            $subject = "Interest in item no. ".$arg;
+            $body = $_POST['mail'];
+            $cc  = "";
+            $bcc = "";
+            ########## $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+        }
+        # else user is not logged in
+        else {
+            # send email to admin
+            $to[] = Array("name" => APP_NAME, "email" => APP_EMAIL);
+            $from = Array("name" => $_POST['from_name'], "email" => $_POST['from_email']);
+            $subject = "Interest in item no. ".$arg;
+            $body = $_POST['mail'];
+            $cc  = "";
+            $bcc = "";
+            ########## $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+        } 
+         Router::redirect("/gallery/item/$arg");
+    }
+
+
+/*---------------------------------------------------------------
+delete() removes a user from the DB. (Only accessible by logged in user)
+----------------------------------------------------------------*/
+
+    public function delete($arg) {
+        # only user has access to deletion
+        if($this->user->user_id != "$arg") {
+            die("Sorry. We can't do that. <a href='/'>Home</a>");
+        }
+
+        if(!$arg) {
+            die("Sorry. We can't do that. <a href='/'>Home</a>");
+        }
+
+        # delete row with this user_id
+        DB::instance(DB_NAME)->delete('users', "WHERE user_id = '$arg'");
+
+        # reroute to home
+        Router::redirect('/');
+    }
+
 
 } # end of the class

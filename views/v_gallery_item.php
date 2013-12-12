@@ -10,7 +10,10 @@
     	<p>Projection: <?=$item['projection_in']?> (in) / <?=$item['projection_cm']?> (cm)</p>
         <p><?=$item['description']?></p>
     	<p>Price: <?=$item['price']?> (USD) </p>
-        <a href="/users/p_favorite/<?=$item['serial_no']?>">Favorite</a>
+        <?php if($user->name != "Supersecretuser"): ?>
+        <a href="/users/contact/<?=$item['serial_no']?>">Contact the gallery</a><br>
+        <?php endif; ?>
+        <a href="/users/p_favorite/<?=$item['serial_no']?>">Favorite</a><br>
         <?php if($user->name == "Supersecretuser"): ?>
         <a href="/gallery/delete/<?=$item['serial_no']?>">Delete</a>
         <?php endif; ?>
