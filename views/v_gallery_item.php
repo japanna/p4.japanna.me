@@ -11,6 +11,9 @@
         <p><?=$item['description']?></p>
     	<p>Price: <?=$item['price']?> (USD) </p>
         <a href="/users/p_favorite/<?=$item['serial_no']?>">Favorite</a>
+        <?php if($user->name == "Supersecretuser"): ?>
+        <a href="/gallery/delete/<?=$item['serial_no']?>">Delete</a>
+        <?php endif; ?>
 	</p>
         <?php endforeach; ?>
 </div>

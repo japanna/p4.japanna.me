@@ -191,12 +191,15 @@ class users_controller extends base_controller {
         $duplicates = DB::instance(DB_NAME)->select_field($q);
         # If we didn't find this serial number in the database...
         if(!$duplicates) {
-
-        # build an array with the values to be inserted
-        $fav_array = Array("user_id" => $this->user->user_id, "faucet_id" => $faucet_id);
-        # insert values
-        $user_faucet_id = DB::instance(DB_NAME)->insert('users_faucets', $fav_array); 
-        Router::redirect('/users/favorite');
+            # build an array with the values to be inserted
+            $fav_array = Array("user_id" => $this->user->user_id, "faucet_id" => $faucet_id);
+            # insert values
+            $user_faucet_id = DB::instance(DB_NAME)->insert('users_faucets', $fav_array); 
+            Router::redirect('/users/favorite');
+        }
+        else {
+            # if this was a duplicate favorite, reroute to gallery
+            Router::redirect('/gallery/browse');
         }
     }
 

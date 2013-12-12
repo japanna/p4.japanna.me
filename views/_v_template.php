@@ -24,6 +24,7 @@
         	<a href='/gallery/specs'>Specs</a>
         	<a href='/users/favorite'>Favorites</a>
             <a href='/users/profile'>Profile</a>
+            <a href='/users/logout'>Log out</a>
         <?php else: ?>
         	<!-- Menu for other users who are logged in --> 
 	        <?php if($user): ?>
@@ -32,6 +33,7 @@
 	        	<a href='/gallery/specs'>Specs</a>
 	        	<a href='/users/favorite'>Favorites</a>
 	            <a href='/users/profile'>Profile</a>
+	            <a href='/users/logout'>Log out</a>
 
 	        <!-- Menu options for users who are not logged in -->
 	        <?php else: ?>

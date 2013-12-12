@@ -24,9 +24,6 @@ class gallery_controller extends base_controller {
         # Setup view
         $this->template->content = View::instance('v_gallery_upload');
         $this->template->title   = "Upload item";
-
-        # Pass data to the view
-        $this->template->content->source = $source;
         
         # Render template
         echo $this->template;
@@ -72,8 +69,9 @@ class gallery_controller extends base_controller {
 	        
 	        # in order to upload more than one image at at time:
 	        # make two arrays out of $_FILES items (because upload() expects an array)
-	        $front[0] = $_FILES[img_front];
+	   		$front[0] = $_FILES[img_front];
 	        $side[0] = $_FILES[img_side];
+	    
 	       	
 	       	# Upload faucet images to server
 	       	# frontal image
@@ -139,10 +137,36 @@ public function item($arg) {
 
     # Render template
    echo $this->template;
-
 }
 
+/*---------------------------------------------------------------
+delete() removes an item from the DB. (Only accessible by admin)
+----------------------------------------------------------------*/
 
+public function delete($arg) {
+	# only admin has access to deletion
+	if($this->user->name != "Supersecretuser") {
+        die("Sorry. We can't do that. <a href='/'>Home</a>");
+    }
+
+    if(!$arg) {
+        die("Sorry. We can't do that. <a href='/'>Home</a>");
+    }
+    
+    # Build the query to find this faucet's faucet_id
+    $q = "SELECT faucet_id
+    	FROM faucets
+    	WHERE serial_no = '".$arg."'";
+
+    # Run the query
+    $faucet_id = DB::instance(DB_NAME)->select_field($q);
+
+    # delete row with this faucet_id
+    DB::instance(DB_NAME)->delete('faucets', "WHERE faucet_id = '$faucet_id'");
+
+    # reroute to gallery
+    Router::redirect('/gallery/browse');
+}
 
 
 
