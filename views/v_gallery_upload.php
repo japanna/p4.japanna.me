@@ -1,5 +1,13 @@
 <form method='POST' id='upload_form' enctype="multipart/form-data" action='/gallery/p_upload'>
 <h1> Upload new item</h1>
+    Item type *<br>
+    <select name="item_type" form="upload_form">
+      <option value="">select type</option>
+      <option value="spout">Spout</option>
+      <option value="control">Control</option>
+      <option value="bowl">Bowl</option>
+    </select>
+    <br><br>
     Serial number *<br>
     <input type='text' name='serial_no' required placeholder='required for all items' autofocus >
     <br><br>
@@ -8,6 +16,20 @@
 	<br><br>
     Overall height (in) *<br>
     <input type='text' name='overall_height_in' required placeholder='required for all items'>
+    <br><br>
+    Spout twist type<br>
+    <select name="spout_type" form="upload_form">
+      <option value="">Faucets only</option>
+      <option value="single">Single</option>
+      <option value="double">Double</option>
+    </select>
+    <br><br>
+    Opacity<br>
+    <select name="opacity" form="upload_form">
+      <option value="">Faucets only</option>
+      <option value="Transparent">Transparent</option>
+      <option value="Opaque">Opaque</option>
+    </select>
     <br><br>
     Spout height (in)<br>
     <input type='text' name='spout_height_in' placeholder='spouts only'>

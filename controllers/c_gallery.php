@@ -37,8 +37,8 @@ class gallery_controller extends base_controller {
        	# If they weren't redirected away, continue:
 
         # Make sure that necessary form fields are filled out (also done client side)
-        if(ctype_space($_POST['serial_no']) OR ctype_space($_POST['color'])
-            OR ctype_space($_POST['overall_height_in']) 
+        if(ctype_space($_POST['item_type']) OR ctype_space($_POST['serial_no']) 
+        	OR ctype_space($_POST['color']) OR ctype_space($_POST['overall_height_in']) 
             OR ctype_space($_POST['description']) 
             OR ctype_space($_POST['img_front'])) {
             # If any of the fields are empty, display error message
@@ -69,7 +69,7 @@ class gallery_controller extends base_controller {
  
 	        # store and upload one or two file names, depending on how many were provided by admin
 	        # if a second image has been provided
-	        if(!isset($side[0][name])) {
+	        if(isset($side[0][name])) {
 	        	# store both in DB
 		        $images = Array("img_front" => $_POST['serial_no']."f", "img_side" => $_POST['serial_no']."s");
 		        # upload both
@@ -107,7 +107,7 @@ browse() takes care of displaying the whole gallery
 public function browse() {
 	# Setup view
     $this->template->content = View::instance('v_gallery_browse');
-    $this->template->title   = "All faucets";
+    $this->template->title   = "Gallery";
 
     # Build the query to show all faucets
     $q = 'SELECT 
