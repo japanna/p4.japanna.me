@@ -3,9 +3,9 @@
     Item type *<br>
     <select name="item_type" form="upload_form">
       <option value="">select type</option>
-      <option value="spout">Spout</option>
-      <option value="control">Control</option>
-      <option value="bowl">Bowl</option>
+      <option value="Spout">Spout</option>
+      <option value="Control">Control</option>
+      <option value="Bowl">Bowl</option>
     </select>
     <br><br>
     Serial number *<br>

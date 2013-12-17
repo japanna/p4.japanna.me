@@ -59,6 +59,7 @@
 	<div class="frame" id="browse">
 		<div id="gallery">
 			<div id="filter_options">
+				<a class="back_to_gallery" href="/gallery/browse"><h2><img src="/img/chevron_left.png"> Back to gallery</h2></a>
 				<ul id="filter_list">
 					<li class="drop_filter">
 						<h2 id="filter_product" class="category"><span>►</span> Product </h2>

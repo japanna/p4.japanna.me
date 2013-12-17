@@ -30,6 +30,8 @@ $('#filter_product').next().children().eq(0).click(function(){
 	$('figure#bowl').hide();
 	$('figure#control').hide();
 	$(this).children().show();
+	$(this).next().hide();
+	$(this).next().next().hide();
 	$('.no_of_items').text(" ");
 });
 
@@ -50,6 +52,8 @@ $('#filter_product').next().children().eq(1).click(function(){
 	$('figure#spout').hide();
 	$('figure#control').hide();
 	$(this).children().show();
+	$(this).next().hide();
+	$(this).prev().hide();
 	$('.no_of_items').text(" ");
 });
 
@@ -71,6 +75,8 @@ $('#filter_product').next().children().eq(2).click(function(){
 	$('figure#spout').hide();
 	$('figure#bowl').hide();
 	$(this).children().show();
+	$(this).prev().hide();
+	$(this).prev().prev().hide();
 	$('.no_of_items').text(" ");
 });
 
@@ -90,5 +96,6 @@ Reset function
 function reset() {
 	$('figure').show();
 	$('figure').show();
+	$('.category').next().children().show();
     $('.category').next().children().children().hide();
 };
