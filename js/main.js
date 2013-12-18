@@ -95,7 +95,6 @@ Reset function
 
 function reset() {
 	$('figure').show();
-	$('figure').show();
 	$('.category').next().children().show();
     $('.category').next().children().children().hide();
 };

@@ -26,7 +26,7 @@
 				<figure id="bowl" class="<?=$post['color']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>" class="">
+						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>" class="">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
