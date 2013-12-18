@@ -1,49 +1,70 @@
-<div id='favorites'>
-    <h4> <?=$no_of_favs ?> favorites</h4> 
-    <?php foreach($items as $item): ?>
-	<p>
-         <?php if($item['item_type'] == "spout"): ?>
-            <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
-            <img class="img_side" src="/uploads/faucets/<?=$item['img_side']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> side"></a>
-            <h1><?=$item['color']?></h1>
-            <h2><?=$item['serial_no']?></h2>
-            <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
-            <p>Spout height: <?=$item['spout_height_in']?> (in) / <?=$item['spout_height_cm']?> (cm)</p>
-            <p>Projection: <?=$item['projection_in']?> (in) / <?=$item['projection_cm']?> (cm)</p>
-            <p><?=$item['description']?></p>
-            <p>Price: <?=$item['price']?> (USD) </p>
-            <?php if($user->name != "Supersecretuser"): ?>
-            <a href="/users/contact/<?=$item['serial_no']?>">Contact gallery</a><br>
-            <?php endif; ?>
-            <a href="/users/p_unfavorite/<?=$item['serial_no']?>">Un-favorite</a>
-        <?php endif; ?>
-        <?php if($item['item_type'] == "bowl"): ?>
-            <a href="/gallery/item/<?=$item['serial_no']?>"><img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
-            <h1><?=$item['color']?></h1>
-            <h2><?=$item['serial_no']?></h2>
-            <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
-            <p>Major diameter: <?=$item['major_diameter_in']?> (in) / <?=$item['major_diameter_cm']?> (cm)</p>
-            <p>Minor diameter: <?=$item['minor_diameter_in']?> (in) / <?=$item['minor_diameter_cm']?> (cm)</p>
-            <p><?=$item['description']?></p>
-            <p>Price: <?=$item['price']?> (USD) </p>
-            <?php if($user->name != "Supersecretuser"): ?>
-            <a href="/users/contact/<?=$item['serial_no']?>">Contact gallery</a><br>
-            <?php endif; ?>
-            <a href="/users/p_unfavorite/<?=$item['serial_no']?>">Un-favorite</a>
-        <?php endif; ?>
-        <?php if($item['item_type'] == "control"): ?>
-            <a href="/gallery/item/<?=$item['serial_no']?>"><img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
-            <h1><?=$item['color']?></h1>
-            <h2><?=$item['serial_no']?></h2>
-            <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
-            <p>Hardware finish: <?=$item['hardware_finish']?></p>
-            <p><?=$item['description']?></p>
-            <p>Price: <?=$item['price']?> (USD) </p>
-            <?php if($user->name != "Supersecretuser"): ?>
-            <a href="/users/contact/<?=$item['serial_no']?>">Contact gallery</a><br>
-            <?php endif; ?>
-            <a href="/users/p_unfavorite/<?=$item['serial_no']?>">Un-favorite</a>
-        <?php endif; ?>
-    </p>
-    <?php endforeach; ?>
-</div>
+	<?php if($no_of_favs == 1): ?>
+		<header class="no_of_items"><?=$no_of_favs ?> favorite</header>	
+	<?php else: ?>
+		<header class="no_of_items"><?=$no_of_favs ?> favorites</header>
+	<?php endif; ?>
+	<div id='works'>
+		<?php foreach($items as $item): ?>
+		<!-- Spouts -->
+			<?php if($item['item_type'] == "Spout"): ?>
+				<figure id="spout" class="<?=$item['color']?> <?=$item['item_type']?> <?=$item['spout_type']?> <?=$item['opacity']?>">
+					<a href="/gallery/item/<?=$item['serial_no']?>">
+					<div class="img_inner">
+						<img src="/uploads/faucets/<?=$item['img_front']?>">
+						<div class="fav_control">
+							<div class="fav_container">
+								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
+							</div>
+						</div>
+					</div>
+					</a>
+					<figcaption>
+						<p class ="color"><?=$item['color']?></p>
+						<p class="serial"><?=$item['opacity']?> <?=$item['spout_type']?>-twist, N°<?=$item['serial_no']?></p>
+						<p class="sale_price">$<?=$item['price']?> USD</p>
+					</figcaption>
+				</figure>
+			<?php endif; ?>
+			<!-- Bowls -->
+			<?php if($item['item_type'] == "Bowl"): ?>
+				<figure id="bowl" class="<?=$item['color']?>">
+					<a href="/gallery/item/<?=$item['serial_no']?>">
+					<div class="img_inner">
+						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$item['img_front']?>" class="">
+						<div class="fav_control">
+							<div class="fav_container">
+								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
+							</div>
+						</div>
+					</div>
+					</a>
+					<figcaption class="">
+						<p class ="color"><?=$item['color']?></p>
+						<p class="serial"><?=$item['item_type']?>, N°<?=$item['serial_no']?></p>
+						<p class="sale_price">$<?=$item['price']?> USD</p>
+					</figcaption>
+				</figure>
+			<?php endif; ?>
+			<!-- Controls-->
+			<?php if($item['item_type'] == "Control"): ?>
+				<figure  id="control" class="<?=$item['color']?>">
+					<a href="/gallery/item/<?=$item['serial_no']?>">
+					<div class="img_inner">
+						<img src="/uploads/faucets/<?=$item['img_front']?>" class="">
+						<div class="fav_control">
+							<div class="fav_container">
+								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
+							</div>
+						</div>
+					</div>
+					</a>
+					<figcaption class="">
+						<p class ="color"><?=$item['color']?></p>
+						<p class="serial"><?=$item['item_type']?>, N°<?=$item['serial_no']?></p>
+						<p class="sale_price">$<?=$item['price']?> USD</p>
+					</figcaption>
+				</figure>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
+<script src="/js/item.js"></script>

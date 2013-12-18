@@ -234,8 +234,8 @@ class users_controller extends base_controller {
             Router::redirect('/users/favorite');
         }
         else {
-            # if this was a duplicate favorite, reroute to item
-            Router::redirect("/gallery/item/$arg");
+            # if this was a duplicate favorite, reroute to favorites
+            Router::redirect("/users/favorite");
         }
     }
 

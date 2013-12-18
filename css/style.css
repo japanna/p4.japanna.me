@@ -268,6 +268,15 @@ figure .fav_control{
 	background-position: 0px 2px;
 }
 
+.unfavorite {
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	background-image: url(/img/unfav.png) ;
+	background-position: 0px 2px;
+}
+
 figcaption {
 	line-height: 19px;
 	color: #666;
@@ -342,7 +351,7 @@ figcaption .serial {
 	position: absolute;
 	width: 230px;
 	top: 0px;
-	right: 60px;
+	right: 90px;
 	margin: 40px 0px 30px 0px;
 	z-index: 2;
 }

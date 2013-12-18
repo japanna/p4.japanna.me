@@ -1,5 +1,6 @@
 <div id='item'>
     <?php foreach($items as $item): ?>
+    <!-- if the item is of type "Spout" -->
         <?php if($item['item_type'] == "Spout"): ?>
             <div class="item_container">
                 <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
@@ -27,7 +28,7 @@
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-
+        <!-- if the item is of type "Bowl" -->
         <?php if($item['item_type'] == "Bowl"): ?>
             <div class="item_container">
                 <img class="img_bowl" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
@@ -54,7 +55,7 @@
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-
+        <!-- if the item is of type "Control" -->
         <?php if($item['item_type'] == "Control"): ?>
          <div class="item_container">
             <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
