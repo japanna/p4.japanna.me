@@ -16,9 +16,9 @@
                 <h1><?=$item['color']?></h1>
                 <h2>N° <?=$item['serial_no']?></h2>
                 <div class="data">
-                    <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
-                    <p>Spout height: <?=$item['spout_height_in']?> (in) / <?=$item['spout_height_cm']?> (cm)</p>
-                    <p>Projection: <?=$item['projection_in']?> (in) / <?=$item['projection_cm']?> (cm)</p>
+                    <p>Overall height: <?=$item['overall_height_in']?> in / <?=$item['overall_height_cm']?> cm</p>
+                    <p>Spout height: <?=$item['spout_height_in']?> in / <?=$item['spout_height_cm']?> cm</p>
+                    <p>Projection: <?=$item['projection_in']?> in / <?=$item['projection_cm']?> cm</p>
                     <p id="item_description"><?=$item['description']?></p>
                     <p id="item_price">Price: <span>$<?=$item['price']?> USD</span></p>
                 </div>
@@ -30,7 +30,7 @@
 
         <?php if($item['item_type'] == "Bowl"): ?>
             <div class="item_container">
-                <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
+                <img class="img_bowl" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
                 <div class="below_item">
                     <a href="/users/p_favorite/<?=$item['serial_no']?>"><img src="/img/fav.png"></a>
                     <p>FAVORITE</p>
@@ -43,9 +43,9 @@
                 <h1><?=$item['color']?></h1>
                 <h2>N° <?=$item['serial_no']?></h2>
                 <div class="data">
-                    <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
-                    <p>Major diameter: <?=$item['major_diameter_in']?> (in) / <?=$item['major_diameter_cm']?> (cm)</p>
-                    <p>Minor diameter: <?=$item['minor_diameter_in']?> (in) / <?=$item['minor_diameter_cm']?> (cm)</p>
+                    <p>Overall height: <?=$item['overall_height_in']?> in / <?=$item['overall_height_cm']?> cm</p>
+                    <p>Major diameter: <?=$item['major_diameter_in']?> in / <?=$item['major_diameter_cm']?> cm</p>
+                    <p>Minor diameter: <?=$item['minor_diameter_in']?> in / <?=$item['minor_diameter_cm']?> cm</p>
                     <p id="item_description"><?=$item['description']?></p>
                     <p id="item_price">Price: <span>$<?=$item['price']?> USD</span></p>
                 </div>
@@ -70,7 +70,7 @@
                 <h1><?=$item['color']?></h1>
                 <h2>N° <?=$item['serial_no']?></h2>
                 <div class="data">
-                    <p>Overall height: <?=$item['overall_height_in']?> (in) / <?=$item['overall_height_cm']?> (cm)</p>
+                    <p>Overall height: <?=$item['overall_height_in']?> in / <?=$item['overall_height_cm']?> cm</p>
                     <p>Hardware finish: <?=$item['hardware_finish']?></p>
                     <p id="item_description"><?=$item['description']?></p>
                     <p id="item_price">Price: <span>$<?=$item['price']?> USD</span></p>

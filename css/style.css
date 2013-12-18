@@ -289,13 +289,25 @@ figcaption .serial {
 .item_container {
 	position: relative;
 	height: auto;
-	width: 580px;
+	width: 560px;
 }
 
 .below_item {
-	margin-top: 15px;
+	margin-top: 5px;
 	display: block;
 	text-align: center;
+}
+
+.img_front {
+	height: 350px;
+}
+
+.img_side {
+	height: 350px;
+}
+
+.img_bowl {
+	width: 450px;
 }
 
 .below_item p {
@@ -325,7 +337,7 @@ figcaption .serial {
 	position: absolute;
 	width: 230px;
 	top: 0px;
-	right: 0px;
+	right: 60px;
 	margin: 40px 0px 30px 0px;
 	z-index: 2;
 }
