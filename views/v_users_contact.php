@@ -1,33 +1,41 @@
  <?php foreach($items as $item): ?>
-    <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
-    <h1><?=$item['color']?></h1>
-    <h2><?=$item['serial_no']?></h2>
-    <p>Price: <?=$item['price']?> (USD) </p>
-<?php endforeach; ?>
-<form method='POST' action='/users/p_contact/<?=$item['serial_no']?>'>
+ <div id="contact_item">
+    <div class ="contact_container">
+        <form method='POST' action='/users/p_contact/<?=$item['serial_no']?>'>
     <!-- Form for users who are logged in --> 
     <?php if($user): ?>
-        <h2>To GF Gallery:</h2>
-        <h3>Ask questions about price, shipping, artist bio, etc. Or send details about your interest in this work.</h3>
-        <textarea name='mail' wrap="hard" cols="100" rows="10" autofocus required></textarea>
+        <h1>To Glass Faucet Gallery</h1>
+        <h2>Questions about price, shipping, artist bio, etc.</h2> 
+        <textarea name='mail' wrap="hard" cols="60" rows="10" required></textarea>
         <br><br>
-        <p>From <?=$user->name?></p>
+        <p><span>From</span></p>
+        <p><?=$user->name?></p>
         <p><?=$user->email?></p>
     <!-- Form for users who are NOT logged in --> 
     <?php else: ?>
-    <h2>To GF Gallery:</h2>
-        <h3>Ask questions about price, shipping, artist bio, etc. Or send details about your interest in this work.</h3>
-        <textarea name='mail' wrap="hard" cols="100" rows="10" autofocus required></textarea>
+        <h1>To Glass Faucet Gallery</h1>
+        <h2>Questions about price, shipping, artist bio, etc.</h2> 
+        <textarea name='mail' wrap="hard" cols="60" rows="10" required></textarea>
         <br><br>
-        <p>From</p>
+        <p><span>From</span></p>
         <input type='text' name='from_name' placeholder='name' required>
         <input type='email' name='from_email' placeholder='email' required><br>
     <?php endif; ?>
-	<?php if(isset($error)): ?>
+    <input type='submit' value='Send'>
+    <?php if(isset($error)): ?>
         <div class='error'>
             Did not send. Please double-check your email and name.
         </div>
-        <br>
-          <?php endif; ?>
-    <input type='submit' value='Send'>
-</form>
+    <?php endif; ?>
+    </form>
+
+    </div>
+    <div class ="info">
+        <a href ="/gallery/item/<?=$item['serial_no']?>"><img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
+        <h1><?=$item['color']?></h1>
+        <h2><?=$item['serial_no']?></h2>
+        <p>$<?=$item['price']?> USD </p>
+    </div>
+<?php endforeach; ?>
+</div>
+  <script src="/js/item.js"></script>

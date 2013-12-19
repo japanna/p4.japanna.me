@@ -67,4 +67,4 @@
 			<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
-<script src="/js/item.js"></script>
+<script src="/js/favorite.js"></script>

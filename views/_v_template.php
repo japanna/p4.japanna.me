@@ -16,10 +16,11 @@
   <div id="content">
 	<header>
 		<div id="header_left">
-			LOREM IPSUM DOLOR SIT<br>AMET INDO FULUR SET.
+			<p>Glass Faucet's goal is to bring art out of</p>
+			<p>the gallery and into the daily lives of people</p>
 		</div>
 		<div id="header_center">
-			<img src="/img/logo.png">
+			<a href="/"><img src="/img/logo.png"></a>
 		</div>
 	</header>
 	<nav>
@@ -29,12 +30,12 @@
 		<ul id="nav_right">
 		<!-- Menu for superuser who is logged in -->
         <?php if($user->name == "Supersecretuser"): ?>
-        	<li><a href='/gallery/upload'>UPLOAD</a></li>
         	<li><a href='/gallery/browse'>BROWSE</a></li>
         	<li><a href='/gallery/about'>ABOUT</a></li>
         	<li><a href='/gallery/specs'>SPECS</a></li>
         	<li><a href='/users/favorite'>FAVORITES</a></li>
             <li><a href='/users/profile'>PROFILE</a></li>
+            <li><a href='/gallery/upload'>UPLOAD</a></li>
             <li><a href='/users/logout'>LOG OUT</a></li>
         <?php else: ?>
         	<!-- Menu for other users who are logged in --> 

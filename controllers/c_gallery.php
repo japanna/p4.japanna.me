@@ -181,7 +181,19 @@ public function delete($arg) {
     Router::redirect('/gallery/browse');
 }
 
+/*---------------------------------------------------------------
+about() renders the about-page
+----------------------------------------------------------------*/
 
+
+public function about() {
+	# Setup view
+    $this->template->content = View::instance('v_gallery_about');
+    $this->template->title   = "About";
+
+    # Render template
+   echo $this->template;
+}
 
 
 } # end of the class

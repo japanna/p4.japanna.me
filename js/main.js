@@ -1,3 +1,4 @@
+
 /*-----------------------------------------------------------
 Show favorite link img on mouseover
 -------------------------------------------------------------*/
@@ -88,6 +89,20 @@ $('#filter_product').next().children().eq(2).children().click(function(e){
 	reset();
 	return false;
 });
+
+
+/*-----------------------------------------------------------
+Active navigation function
+-------------------------------------------------------------*/
+
+  //Remove active class on all buttons
+ 	$('a').click(function(){
+ 		$(this).remove();
+      //$('nav ul li a').removeClass('active');
+	//Add the clicked button class
+  //$(this).addClass('active'); 
+});
+
 
 /*-----------------------------------------------------------
 Reset function

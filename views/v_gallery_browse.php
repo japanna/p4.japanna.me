@@ -1,3 +1,4 @@
+	 <script src="/js/browse.js"></script>
 	<header class="no_of_items">Showing <?=$items ?> pieces</header>	
 	<div id='works'>
 		<?php foreach($posts as $post): ?>
