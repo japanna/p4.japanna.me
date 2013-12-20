@@ -20,96 +20,70 @@ Toggle filter menu options show/hide
 -------------------------------------------------------------*/
 
 $('.category').click(function(){
+	$(this).next().children().css("color", "#000");
+	$(this).next().children().css("pointer-events", "auto");
 	$(this).next().children().slideToggle();
+
 });
 
 /*-----------------------------------------------------------
-Filter to only show faucets
+Filter function product
 -------------------------------------------------------------*/
 
-$('#filter_product').next().children().eq(0).click(function(){
-	$('figure#bowl').hide();
-	$('figure#control').hide();
+$('.options li').click(function(){
+	//$('figure').show();
+	// get the class for the clicked element
+	var filter_class = $(this).attr("class");
+	// for each item in the gallery
+	$('figure').each(function(){
+		// if the item is not of the class clicked
+		if(!$(this).hasClass(filter_class)) {
+			// hide the item
+			$(this).hide();
+		}
+	});
+	// show clear filter link
+	$('.options li').children().hide();
 	$(this).children().show();
-	$(this).next().hide();
-	$(this).next().next().hide();
-	$('.no_of_items').text(" ");
+	$(this).siblings().css("pointer-events", "none");
+	$(this).siblings().css("color", "#ddd");
+	//$(this).parent().children().slideToggle();
+	num_remove();
 });
 
 /*-----------------------------------------------------------
-Reset faucet filter
+Reset filter
 -------------------------------------------------------------*/
-
-$('#filter_product').next().children().eq(0).children().click(function(){
+$('.clear_filter').click(function(){
 	reset();
 	return false;
 });
-
-/*-----------------------------------------------------------
-Filter to only show bowls
--------------------------------------------------------------*/
-
-$('#filter_product').next().children().eq(1).click(function(){
-	$('figure#spout').hide();
-	$('figure#control').hide();
-	$(this).children().show();
-	$(this).next().hide();
-	$(this).prev().hide();
-	$('.no_of_items').text(" ");
-});
-
-/*-----------------------------------------------------------
-Reset bowl filter
--------------------------------------------------------------*/
-
-$('#filter_product').next().children().eq(1).children().click(function(){
-	reset();
-	return false;
-});
-
-
-/*-----------------------------------------------------------
-Filter to only show controls
--------------------------------------------------------------*/
-
-$('#filter_product').next().children().eq(2).click(function(){
-	$('figure#spout').hide();
-	$('figure#bowl').hide();
-	$(this).children().show();
-	$(this).prev().hide();
-	$(this).prev().prev().hide();
-	$('.no_of_items').text(" ");
-});
-
-/*-----------------------------------------------------------
-Reset control filter
--------------------------------------------------------------*/
-
-$('#filter_product').next().children().eq(2).children().click(function(e){
-	reset();
-	return false;
-});
-
-
-/*-----------------------------------------------------------
-Active navigation function
--------------------------------------------------------------*/
-
-  //Remove active class on all buttons
- 	$('a').click(function(){
- 		$(this).remove();
-      //$('nav ul li a').removeClass('active');
-	//Add the clicked button class
-  //$(this).addClass('active'); 
-});
-
 
 /*-----------------------------------------------------------
 Reset function
 -------------------------------------------------------------*/
 
-function reset() {
+function reset(){
 	$('figure').show();
-	$('.category').next().children().show();
-    $('.category').next().children().children().hide();
+	// hide all other filter options
+	$('.options').children().hide();
+	// hide clear link
+	$('.no_of_items').text("Showing all items");
+	$('.clear_filter').hide();
+
+};
+
+/*-----------------------------------------------------------
+Remove "no of items" function
+-------------------------------------------------------------*/
+
+function num_remove() {
+	var x = $('figure:visible').get();
+	var y = x.length;
+	if(y == 1){
+		$('.no_of_items').text( y + " filtered result");
+	}
+	else {
+	$('.no_of_items').text( y + " filtered results");
+}
 };

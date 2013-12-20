@@ -195,5 +195,19 @@ public function about() {
    echo $this->template;
 }
 
+/*---------------------------------------------------------------
+specs() renders the specs-page
+----------------------------------------------------------------*/
+
+
+public function specs() {
+	# Setup view
+    $this->template->content = View::instance('v_gallery_specs');
+    $this->template->title   = "Specs";
+
+    # Render template
+   echo $this->template;
+}
+
 
 } # end of the class

@@ -16,8 +16,8 @@
   <div id="content">
 	<header>
 		<div id="header_left">
-			<p>Glass Faucet's goal is to bring art out of</p>
-			<p>the gallery and into the daily lives of people</p>
+			<p>Bringing art out of the gallery</p>
+			<p>and into the daily lives of people</p>
 		</div>
 		<div id="header_center">
 			<a href="/"><img src="/img/logo.png"></a>
@@ -26,23 +26,17 @@
 	<nav>
 		<ul id="nav_left">
 		  <li><a href='/'>HOME</a></li>
+		  <!-- Menu for superuser who is logged in -->
+		  <?php if($user->name == "Supersecretuser"): ?>
+		  	<li id="upload"><a href='/gallery/upload'>UPLOAD</a></li>
+		  <?php endif; ?>
 		</ul>
 		<ul id="nav_right">
-		<!-- Menu for superuser who is logged in -->
-        <?php if($user->name == "Supersecretuser"): ?>
-        	<li><a href='/gallery/browse'>BROWSE</a></li>
-        	<li><a href='/gallery/about'>ABOUT</a></li>
-        	<li><a href='/gallery/specs'>SPECS</a></li>
-        	<li><a href='/users/favorite'>FAVORITES</a></li>
-            <li><a href='/users/profile'>PROFILE</a></li>
-            <li><a href='/gallery/upload'>UPLOAD</a></li>
-            <li><a href='/users/logout'>LOG OUT</a></li>
-        <?php else: ?>
         	<!-- Menu for other users who are logged in --> 
 	        <?php if($user): ?>
 	        	<li><a href='/gallery/browse'>BROWSE</a></li>
 	        	<li><a href='/gallery/about'>ABOUT</a></li>
-	        	<li><a href='/gallery/specs'>SPECS</a></li>
+	        	<li><a href='/gallery/specs'>SCIENCE</a></li>
 	        	<li><a href='/users/favorite'>FAVORITES</a></li>
 	            <li><a href='/users/profile'>PROFILE</a></li>
 	            <li><a href='/users/logout'>LOG OUT</a></li>
@@ -50,10 +44,10 @@
 	        <?php else: ?>
 	        	<li><a href='/gallery/browse'>BROWSE</a></li>
 	        	<li><a href='/gallery/about'>ABOUT</a></li>
-	        	<li><a href='/gallery/specs'>SPECS</a></li>
+	        	<li><a href='/gallery/specs'>SCIENCE</a></li>
+	        	<li> <a href='/gallery/book'>BOOK</a></li>
 	        	<li><a href='/users/login'>LOG IN</a></li>
 	            <li><a href='/users/signup'>SIGN UP</a></li>
-	       	<?php endif; ?>
         <?php endif; ?>
     	</ul>
 	</nav>
@@ -61,43 +55,43 @@
 		<div id="gallery">
 			<div id="filter_options">
 				<a class="back_to_gallery" href="/gallery/browse"><h2><img src="/img/chevron_left.png"> Back to gallery</h2></a>
-				<ul id="filter_list">
+				<ul id="filter_list">	
 					<li class="drop_filter">
-						<h2 id="filter_product" class="category"><span>►</span> Product </h2>
+						<h2 class="category"><span>►</span>Product </h2>
 						<ul class="options">
-							<li>Faucets <a href="" class="clear_filter">Clear</a></li>
-							<li>Sinks <a href="" class="clear_filter">Clear</a></li>
-							<li>Controls <a href="" class="clear_filter">Clear</a></li>
+							<li class="Spout">Faucets <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Bowl">Sinks <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Control">Controls <a href="" class="clear_filter">Clear all</a></li>
 						</ul>
 					</li>
 					<li class="drop_filter">
-						<h2 class="category"><span>►</span> Color </h2>
-						<ul id="filter_color" class="options">
-							<li>Amber</li>
-							<li>Amethyst</li>
-							<li>Cobalt</li>
-							<li>Ebony</li>
-							<li>Emerald</li>
-							<li>Gold</li>
-							<li>Ruby</li>
-							<li>White</li>
-							<li>Custom</li>
+						<h2 class="category"><span>►</span>Color </h2>
+						<ul class="options">
+							<li class="Amber">Amber <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Amethyst">Amethyst <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Cobalt">Cobalt <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Ebony">Ebony <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Emerald">Emerald <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Gold">Gold <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Ruby">Ruby <a href="" class="clear_filter">Clear all</a></li>
+							<li class="White">White <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Custom">Custom <a href="" class="clear_filter">Clear all</a></li>
 						</ul>
 					</li>
 					<li class="drop_filter">
 						<h2 class="category"><span>►</span> Twist </h2>
-						<ul id="filter_twist" class="options">
-							<li>Single</li>
-							<li>Double</li>
+						<ul class="options">
+							<li class="single">Single <a href="" class="clear_filter">Clear all</a></li>
+							<li class="double">Double <a href="" class="clear_filter">Clear all</a></li>
 						</ul>
 					</li>
 					<li class="drop_filter">
 						<h2 class="category"><span>►</span> Opacity </h2>
-						<ul id="filter_price" class="options">
-							<li>Transparent</li>
-							<li>Opaque</li>
+						<ul class="options">
+							<li class="Transparent">Transparent <a href="" class="clear_filter">Clear all</a></li>
+							<li class="Opaque">Opaque <a href="" class="clear_filter">Clear all</a></li>
 						</ul>
-					</li>
+					</li>	
 				</ul>
 			</div>
 			<div class="results">

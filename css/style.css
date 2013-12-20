@@ -52,11 +52,10 @@ table {
 body {
 	font-family: adobe-garamond-pro, Garamond, Georgia,serif;
 	min-width: 1100px;
-	
 }
 
 #content {
-	min-height: 1300px;
+	
 	background: #fff;
 	overflow: hidden;
 }
@@ -65,7 +64,7 @@ header {
 	display: block;
 	position: relative;
 	font-size: 15px;
-	min-width: 1024px;
+	
 	width: 100%; 
 	padding-bottom: 8px;
 	border-bottom: 0px solid #e5e5e5;
@@ -75,7 +74,7 @@ header {
 }
 
 #header_left {
-	width 375px;
+	width: 375px;
 	position: absolute;
 	top: 35px;
 	left: 50px;
@@ -133,7 +132,7 @@ nav ul li a:visited {
 }
 
 nav ul li a:hover {
-color: #8c53c6;
+	color: #8c53c6;
 }
 
 #browse {
@@ -151,7 +150,7 @@ color: #8c53c6;
 	margin: 0;
 	padding-bottom: 3px;
 	padding-top: 30px;
-	position: fixed;
+	position: absolute;
 	width: 240px;
 }
 
@@ -203,9 +202,14 @@ color: #8c53c6;
 	display: none;
 }
 
+ h4.clear_filter {
+	font-size: 90%;
+	display: none;
+}
+
 .results {
 	clear: both;
-	margin-left: 200px;
+	margin-left: 190px;
 	position: relative;
 }
 
@@ -415,21 +419,26 @@ figcaption .serial {
 	min-height: 600px;
 	width:950px;
 	position: relative;
-	padding-top: 80px;
+	padding-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 #about_nav {
 	position: absolute;
-	right: 30px;
-	top: 76px;
-	width: 300px;
+	right: 150px;
+	top: 32px;
+	width: 260px;
 	font-size: 19px;
 	line-height: 200%;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
 
+#about_nav img {
+	margin-top: 15px;
+	position: absolute;
+	right: 11px;
 }
 
 #about_nav a:link,
@@ -444,14 +453,13 @@ figcaption .serial {
 }
 
 #about_content {
-	width: 554px;
+	width: 510px;
 	margin-bottom: 110px;
 }
 
 #about_content h2 {
-	font-size: 28px;
+	font-size: 26px;
 	line-height: 120%;
-	margin-top: 5px;
 	margin-bottom: 23px;
 }
 
@@ -466,8 +474,24 @@ figcaption .serial {
 	font-style: italic;
 }
 
+blockquote {
+	font-size: 110%;
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
 nav ul li.active a{
 	color: #8c53c6;
+}
+
+.specs img{
+	width: 100px;
+	float: left;
+}
+
+figure.specs {
+	height: 100px;
 }
 
 .contact_container {
@@ -548,3 +572,41 @@ input[type=submit]:hover {
 	height: 200px;
 }
 
+#upload a{
+	color: red;
+}
+
+#profile {
+	margin: 0 auto;
+padding: 100px 20px 20px;
+width: 380px;
+}
+
+#profile h1{
+	font-family: open-sans, helvetica, ariel, sans-serif;
+	line-height: 160%;
+	font-size: 26px;
+	letter-spacing: 1px;
+	margin-bottom: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.profile_icon_container {
+	overflow: hidden;
+	height: 140px;
+	width: 140px;
+	text-align: center;
+	margin: auto;
+}
+.profile_icon {
+	height: 140px;
+	width: 140px;
+	margin: auto;
+	background-image: url(/img/profile_img.png);
+	background-repeat: none;
+}
+
+.profile_actions {
+	
+}
