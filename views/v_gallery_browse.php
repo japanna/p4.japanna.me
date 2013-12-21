@@ -7,7 +7,7 @@
 				<figure class="<?=$post['color']?> <?=$post['item_type']?> <?=$post['spout_type']?> <?=$post['opacity']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>">
+						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
@@ -28,7 +28,7 @@
 				<figure id="bowl" class="<?=$post['color']?> <?=$post['item_type']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>" class="">
+						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg" class="">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
@@ -48,7 +48,7 @@
 				<figure  id="control" class="<?=$post['color']?> <?=$post['item_type']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>" class="">
+						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg" class="">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
