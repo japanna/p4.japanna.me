@@ -3,13 +3,13 @@ Start site images fade in /fade out
 -------------------------------------------------------------*/
 
 $('#dont_be').click(function(){
-		$('.boring').fadeOut(1500);
-		$('#dont_be').fadeOut(1500);
+		$('.boring').fadeOut(1200);
+		$('#dont_be').fadeOut(1200);
 	setTimeout(function() {
 	$('.fun').fadeIn(200);
 	$('#home_content span').fadeIn(200);
 	$('#get_fun').fadeIn(200);
-	}, 1500);
+	}, 1200);
 });
 
 
