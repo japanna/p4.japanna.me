@@ -8,3 +8,4 @@
 		<p id="dont_be">Dont be it.</p>
 		<p id="get_fun"><a href="/gallery/browse">Visit our gallery.</a></p>
 	</div>
+</div>
