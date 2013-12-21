@@ -5,9 +5,10 @@
 		<!-- Spouts -->
 			<?php if($post['item_type'] == "Spout"): ?>
 				<figure class="<?=$post['color']?> <?=$post['item_type']?> <?=$post['spout_type']?> <?=$post['opacity']?>">
-					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg"></a>
+						<a href="/gallery/item/<?=$post['serial_no']?>">
+							<img src="/uploads/faucets/<?=$post['img_front']?>.jpg">
+						</a>
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
