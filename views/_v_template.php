@@ -9,7 +9,6 @@
 	<script src="//use.edgefonts.net/open-sans:n4,n7,n8.js"></script>
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/jquery-1.9.1.min.js"></script>
-	<script src="/js/home.js"></script>
 	<link rel="shortcut icon" href="/img/favicon.ico" />
 </head>
 

@@ -1,4 +1,4 @@
-
+<script src="/js/home.js"></script>
 <div id="home">
 	<div id="home_content">
 		<h1 class="boring">Boring.</h1>
