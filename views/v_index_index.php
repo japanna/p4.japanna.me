@@ -1,2 +1,10 @@
-<!-- <h1>Welcome to <?=APP_NAME?><?php if($user) echo ', '.$user->name; ?></h1> -->
-<script src="/js/item.js"></script>
+<script src="/js/home.js"></script>
+<div id="home">
+	<div id="home_content">
+		<h1 class="boring">Boring.</h1>
+		<h1 class="fun">Fun.</h1>
+		<img class="boring" src="/img/boring.jpg">
+		<img class="fun" src="/img/fun.jpg">
+		<p id="dont_be">Dont be it.</p>
+		<p id="get_fun"><a href="/gallery/browse">Visit our gallery.</a></p>
+	</div>

@@ -34,17 +34,17 @@
 		<ul id="nav_right">
         	<!-- Menu for other users who are logged in --> 
 	        <?php if($user): ?>
-	        	<li><a href='/gallery/browse'>BROWSE</a></li>
+	        	<li><a href='/gallery/browse'>GALLERY</a></li>
 	        	<li><a href='/gallery/about'>ABOUT</a></li>
-	        	<li><a href='/gallery/specs'>SCIENCE</a></li>
+	        	<li><a href='/gallery/specs'>DOCUMENTS</a></li>
 	        	<li><a href='/users/favorite'>FAVORITES</a></li>
 	            <li><a href='/users/profile'>PROFILE</a></li>
 	            <li><a href='/users/logout'>LOG OUT</a></li>
 	        <!-- Menu options for users who are not logged in -->
 	        <?php else: ?>
-	        	<li><a href='/gallery/browse'>BROWSE</a></li>
+	        	<li><a href='/gallery/browse'>GALLERY</a></li>
 	        	<li><a href='/gallery/about'>ABOUT</a></li>
-	        	<li><a href='/gallery/specs'>SCIENCE</a></li>
+	        	<li><a href='/gallery/specs'>DOCUMENTS</a></li>
 	        	<li> <a href='/gallery/book'>BOOK</a></li>
 	        	<li><a href='/users/login'>LOG IN</a></li>
 	            <li><a href='/users/signup'>SIGN UP</a></li>

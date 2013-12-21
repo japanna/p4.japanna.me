@@ -112,7 +112,8 @@ public function browse() {
     # Build the query to show all faucets
     $q = 'SELECT 
         faucets.*
-    	FROM faucets';
+    	FROM faucets
+    	ORDER BY item_type DESC, color';
 
     # Run the query
     $posts = DB::instance(DB_NAME)->select_rows($q);

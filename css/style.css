@@ -479,6 +479,7 @@ blockquote {
 	font-weight: bold;
 	font-style: italic;
 	margin-bottom: 5px;
+	margin-top: 7px;
 }
 
 nav ul li.active a{
@@ -529,7 +530,8 @@ figure.specs {
 
 textarea,
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=password] {
 	padding:5px; 
 	border: 2px solid #ccc; 
 	-webkit-border-radius: 0px;
@@ -580,6 +582,7 @@ input[type=submit]:hover {
 	margin: 0 auto;
 padding: 100px 20px 20px;
 width: 380px;
+padding-right: 190px;
 }
 
 #profile h1{
@@ -591,6 +594,7 @@ width: 380px;
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: bold;
+	text-align: center;
 }
 .profile_icon_container {
 	overflow: hidden;
@@ -598,6 +602,7 @@ width: 380px;
 	width: 140px;
 	text-align: center;
 	margin: auto;
+	padding-bottom: 15px;
 }
 .profile_icon {
 	height: 140px;
@@ -608,5 +613,139 @@ width: 380px;
 }
 
 .profile_actions {
-	
+	text-align: center;
+	margin-top: 20px;
 }
+
+.profile_actions a{
+	text-align: center;
+	padding: 7px 60px; 
+	color: #fff;
+	background:#000; 
+	text-transform: uppercase;
+	font-family: open-sans, helvetica, ariel, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	border:0 none;
+	cursor:pointer;
+	-webkit-border-radius: 0px;
+	border-radius: 0px; 
+	margin-top: 20px;
+}
+
+
+.profile_actions a:hover {
+	background-color: red;
+}
+
+#login {
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: left;
+	padding-left: 240px;
+}
+
+#upload {
+	font-family: open-sans, helvetica, ariel, sans-serif;
+	font-weight: bold;
+	margin-top: 40px;
+	text-transform: uppercase;
+}
+
+#upload h1 {
+	text-align: center;
+	font-size: 24px;
+	line-height: 120%;
+	margin-bottom: 30px;
+}
+
+#upload h2 {
+	font-size: 16px;
+	line-height: 100%;
+	margin-bottom: 15px;
+	color: red;
+}
+
+#upload h3 {
+	font-family: adobe-garamond-pro, Garamond, Georgia,serif;
+	font-weight: normal;
+	font-size: 18px;
+	text-transform: none;
+}
+
+select {
+	margin-bottom: 20px;
+}
+
+.upload_col {
+	width: 180px;
+	float: left;
+}
+
+#upload_submit {
+	background-color: green;
+}
+
+#upload_submit:hover {
+	background-color: #8c53c6;
+}
+
+#home {
+	width: 600px;
+	position: relative;
+	padding-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#home_content {
+	margin-left: -80px;
+	width: 510px;
+}
+
+#home_content h1{
+	font-family: open-sans, helvetica, ariel, sans-serif;
+	font-size: 56px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-left: 65px;
+}
+
+#home_content img {
+	padding-bottom: 15px;
+}
+
+#home_content p {
+	font-size: 17px;
+	line-height: 153%;
+	margin-top: 0;
+	margin-bottom: 20px;
+	text-align: center;
+	margin-left: 65px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#home_content a {
+	color: #000;
+}
+
+h1.fun,
+p.fun,
+#home_content span {
+	display: none;
+}
+
+img.fun,
+#get_fun {
+	display: none;
+	padding-bottom: 15px;
+}
+
+#home_content span {
+	text-align: center;
+	text-decoration: none;
+}
+

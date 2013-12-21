@@ -87,3 +87,13 @@ function num_remove() {
 	$('.no_of_items').text( y + " filtered results");
 }
 };
+
+$('#dont_be').click(function(){
+		$('.boring').fadeOut(1500);
+		$('#dont_be').fadeOut(1500);
+	setTimeout(function() {
+	$('.fun').fadeIn(200);
+	$('#home_content span').fadeIn(200);
+	$('#get_fun').fadeIn(200);
+	}, 1500);
+});
