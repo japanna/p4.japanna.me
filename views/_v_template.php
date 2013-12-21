@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/jquery-1.9.1.min.js"></script>
 	<script src="/js/home.js"></script>
-
+	<link rel="shortcut icon" href="/img/favicon.ico" />
 </head>
 
 <body>
