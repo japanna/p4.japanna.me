@@ -68,7 +68,7 @@ class users_controller extends base_controller {
             $body = $_POST['name'].",  welcome to Glass Faucet.";
             $cc  = "";
             $bcc = "";
-            //$email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+            $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
 
         # Redirect to start page
         Router::redirect("/");
