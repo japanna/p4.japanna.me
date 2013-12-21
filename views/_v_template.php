@@ -45,7 +45,6 @@
 	        	<li><a href='/gallery/browse'>GALLERY</a></li>
 	        	<li><a href='/gallery/about'>ABOUT</a></li>
 	        	<li><a href='/gallery/specs'>DOCUMENTS</a></li>
-	        	<li> <a href='/gallery/book'>BOOK</a></li>
 	        	<li><a href='/users/login'>LOG IN</a></li>
 	            <li><a href='/users/signup'>SIGN UP</a></li>
         <?php endif; ?>
