@@ -27,9 +27,10 @@
 			<!-- Bowls -->
 			<?php if($post['item_type'] == "Bowl"): ?>
 				<figure id="bowl" class="<?=$post['color']?> <?=$post['item_type']?>">
-					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg"></a>
+						<a href="/gallery/item/<?=$post['serial_no']?>">
+							<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg">
+						</a>
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
@@ -47,9 +48,10 @@
 			<!-- Controls-->
 			<?php if($post['item_type'] == "Control"): ?>
 				<figure  id="control" class="<?=$post['color']?> <?=$post['item_type']?>">
-					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg"></a>
+						<a href="/gallery/item/<?=$post['serial_no']?>">
+							<img src="/uploads/faucets/<?=$post['img_front']?>.jpg">
+						</a>
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
