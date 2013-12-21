@@ -28,14 +28,14 @@
 				<figure id="bowl" class="<?=$post['color']?> <?=$post['item_type']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg">
+						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg"></a>
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
 							</div>
 						</div>
 					</div>
-					</a>
+					
 					<figcaption class="">
 						<p class ="color"><?=$post['color']?></p>
 						<p class="serial"><?=$post['item_type']?>, N°<?=$post['serial_no']?></p>
@@ -48,14 +48,14 @@
 				<figure  id="control" class="<?=$post['color']?> <?=$post['item_type']?>">
 					<a href="/gallery/item/<?=$post['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg">
+						<img src="/uploads/faucets/<?=$post['img_front']?>.jpg"></a>
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_favorite/<?=$post['serial_no']?>"><div class="favorite"></div></a>
 							</div>
 						</div>
 					</div>
-					</a>
+					
 					<figcaption class="">
 						<p class ="color"><?=$post['color']?></p>
 						<p class="serial"><?=$post['item_type']?>, N°<?=$post['serial_no']?></p>
