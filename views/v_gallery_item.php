@@ -3,8 +3,8 @@
     <!-- if the item is of type "Spout" -->
         <?php if($item['item_type'] == "Spout"): ?>
             <div class="item_container">
-                <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
-                <img class="img_side" src="/uploads/faucets/<?=$item['img_side']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> side"></a>
+                <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>.jpg" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
+                <img class="img_side" src="/uploads/faucets/<?=$item['img_side']?>.jpg" alt="<?=$item['serial_no']?> <?=$item['color']?> side"></a>
                 <div class="below_item">
                     <a href="/users/p_favorite/<?=$item['serial_no']?>"><img src="/img/fav.png"></a>
                     <p>FAVORITE</p>
@@ -31,7 +31,7 @@
         <!-- if the item is of type "Bowl" -->
         <?php if($item['item_type'] == "Bowl"): ?>
             <div class="item_container">
-                <img class="img_bowl" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
+                <img class="img_bowl" src="/uploads/faucets/<?=$item['img_front']?>.jpg" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
                 <div class="below_item">
                     <a href="/users/p_favorite/<?=$item['serial_no']?>"><img src="/img/fav.png"></a>
                     <p>FAVORITE</p>
@@ -58,7 +58,7 @@
         <!-- if the item is of type "Control" -->
         <?php if($item['item_type'] == "Control"): ?>
          <div class="item_container">
-            <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
+            <img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>.jpg" alt="<?=$item['serial_no']?> <?=$item['color']?> front">
             <div class="below_item">
                     <a href="/users/p_favorite/<?=$item['serial_no']?>"><img src="/img/fav.png"></a>
                     <p>FAVORITE</p>

@@ -10,7 +10,7 @@
 				<figure id="spout" class="<?=$item['color']?> <?=$item['item_type']?> <?=$item['spout_type']?> <?=$item['opacity']?>">
 					<a href="/gallery/item/<?=$item['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$item['img_front']?>">
+						<img src="/uploads/faucets/<?=$item['img_front']?>.jpg">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
@@ -30,7 +30,7 @@
 				<figure id="bowl" class="<?=$item['color']?>">
 					<a href="/gallery/item/<?=$item['serial_no']?>">
 					<div class="img_inner">
-						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$item['img_front']?>" class="">
+						<img class="gallery_bowl_img" src="/uploads/faucets/<?=$item['img_front']?>.jpg" class="">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
@@ -50,7 +50,7 @@
 				<figure  id="control" class="<?=$item['color']?>">
 					<a href="/gallery/item/<?=$item['serial_no']?>">
 					<div class="img_inner">
-						<img src="/uploads/faucets/<?=$item['img_front']?>" class="">
+						<img src="/uploads/faucets/<?=$item['img_front']?>.jpg" class="">
 						<div class="fav_control">
 							<div class="fav_container">
 								<a href="/users/p_unfavorite/<?=$item['serial_no']?>"><div class="unfavorite"></div></a>
