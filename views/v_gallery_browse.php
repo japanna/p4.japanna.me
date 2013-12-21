@@ -26,7 +26,7 @@
 			<?php endif; ?>
 			<!-- Bowls -->
 			<?php if($post['item_type'] == "Bowl"): ?>
-				<figure id="bowl" class="<?=$post['color']?> <?=$post['item_type']?>">
+				<figure class="<?=$post['color']?> <?=$post['item_type']?>">
 					<div class="img_inner">
 						<a href="/gallery/item/<?=$post['serial_no']?>">
 							<img class="gallery_bowl_img" src="/uploads/faucets/<?=$post['img_front']?>.jpg">
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					
-					<figcaption class="">
+					<figcaption>
 						<p class ="color"><?=$post['color']?></p>
 						<p class="serial"><?=$post['item_type']?>, N°<?=$post['serial_no']?></p>
 						<p class="sale_price">$<?=$post['price']?> USD</p>
@@ -47,7 +47,7 @@
 			<?php endif; ?>
 			<!-- Controls-->
 			<?php if($post['item_type'] == "Control"): ?>
-				<figure  id="control" class="<?=$post['color']?> <?=$post['item_type']?>">
+				<figure class="<?=$post['color']?> <?=$post['item_type']?>">
 					<div class="img_inner">
 						<a href="/gallery/item/<?=$post['serial_no']?>">
 							<img src="/uploads/faucets/<?=$post['img_front']?>.jpg">
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					
-					<figcaption class="">
+					<figcaption>
 						<p class ="color"><?=$post['color']?></p>
 						<p class="serial"><?=$post['item_type']?>, N°<?=$post['serial_no']?></p>
 						<p class="sale_price">$<?=$post['price']?> USD</p>
