@@ -21,7 +21,7 @@ class users_controller extends base_controller {
     public function p_signup() {
         # Make sure user can't access /users/p_signup/ without submitting the form
         if(empty($_POST['email'])) {
-        die("Please submit email address. <a href='/users/signup'>Sign up</a>");
+        die("<p>Please submit email address. <a href='/users/signup'>Sign up</a></p>");
         }
 
         # If they weren't redirected away, continue:
@@ -169,7 +169,7 @@ class users_controller extends base_controller {
     public function favorite() {
         # If user is blank, they're not logged in; redirect them to the login page
         if(!$this->user) {
-        die("Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a>");
+        die("<p>Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a></p>");
         }
         # If they weren't redirected away, continue:
        
@@ -203,11 +203,11 @@ class users_controller extends base_controller {
     public function p_favorite($arg) {
         # Make sure user is logged in if they want to use anything in this controller
         if(!$this->user) {
-            die("Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a>");
+            die("<p>Please log in or sign up to favorite a piece. <a href='/users/login'>Login</a> <a href='/users/signup'>Sign up</a><p>");
         }
 
         if(!$arg) {
-            die("Please click on a piece to favorite it. <a href='/gallery/browse'>Browse</a>");
+            die("<p>Please click on a piece to favorite it. <a href='/gallery/browse'>Browse</a></p>");
         }
 
         # query the database for the favorited faucet's faucet_id
@@ -282,7 +282,7 @@ contact() sends admin an email from user.
 
     public function p_contact($arg){
         if(!$arg) {
-            die("Sorry. We can't do that. <a href='/'>Home</a>");
+            die("<p>Sorry. We can't do that. <a href='/'>Home</a></p>");
         }
          # if user is logged in
         if($this->user) {
@@ -318,11 +318,11 @@ delete() removes a user from the DB. (Only accessible by logged in user)
     public function delete($arg) {
         # only user has access to deletion
         if($this->user->user_id != "$arg") {
-            die("Sorry. We can't do that. <a href='/'>Home</a>");
+            die("<p>Sorry. We can't do that. <a href='/'>Home</a></p>");
         }
 
         if(!$arg) {
-            die("Sorry. We can't do that. <a href='/'>Home</a>");
+            die("<p>Sorry. We can't do that. <a href='/'>Home</a></p>");
         }
 
         # delete row with this user_id

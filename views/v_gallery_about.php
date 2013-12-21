@@ -1,7 +1,7 @@
 <script src="/js/about.js"></script>
 <div id="about">
 	<div id="about_nav">
-		<img src="/img/about_img.jpg">
+		<img src="/img/about_img.jpg" alt="about">
 	</div>
 	<div id="about_content">
 
