@@ -16,12 +16,15 @@
             <input type='password' name='password' required>
             <br><br>
 
-            <?php if(isset($error)): ?>
-                <div class='error'>
-                    Login failed. Please double check your email and password.
-                </div>
-                <br>
-            <?php endif; ?>
+            <?php if(isset($source)): ?>
+        <div class='error'>
+            <?php if($source == "empty") {
+                echo "All fields are required. Please try again."; 
+                } else {
+                echo "Email already in use. Please try a different email address."; }?>
+        </div>
+        <br>
+    <?php endif; ?>
 
             <input type='submit' value='Sign up'>
         </form>

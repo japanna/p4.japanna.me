@@ -9,6 +9,7 @@
 	<script src="//use.edgefonts.net/open-sans:n4,n7,n8.js"></script>
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/jquery-1.9.1.min.js"></script>
+	<script src="/js/home.js"></script>
 
 </head>
 
@@ -102,7 +103,12 @@
 		</div>
 	</div>
   </div>
-  <footer></footer>
+  <footer>
+  	<p>© Glass Faucet 2013</p>
+
+	<p>Tel: +1 (314) 517-4555</p>
+	<p><a href="mailto:CustomerSupport@glassfaucet.com?Subject=Inquiry" target="_top">CustomerSupport@glassfaucet.com</a></p>
+</footer>
   <script src="/js/main.js"></script>
 </body>
 </html>

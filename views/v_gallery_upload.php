@@ -26,6 +26,7 @@
             <textarea name='description' wrap="hard" cols="15" rows="3" placeholder='required' required></textarea>
             <br><br>
             <h3>Front image *</h3>
+            <h4>Must be jpg-format</h4>
             <input type='file' name='img_front' required><br>
         </div>
         <div class="upload_col">
@@ -51,6 +52,7 @@
             <input type='text' name='projection_in' placeholder='spouts only'>
             <br><br>
             <h3>Side image</h3>
+            <h4>Must be jpg-format</h4>
             <input type='file' name='img_side'><br>
             <br><br>
         </div>

@@ -673,6 +673,14 @@ padding-right: 190px;
 	text-transform: none;
 }
 
+#upload h4 {
+	font-family: adobe-garamond-pro, Garamond, Georgia,serif;
+	font-weight: normal;
+	font-size: 14px;
+	text-transform: none;
+	color: red;
+}
+
 select {
 	margin-bottom: 20px;
 }
@@ -749,3 +757,18 @@ img.fun,
 	text-decoration: none;
 }
 
+footer {
+	border-top: 1px solid #e5e5e5;
+	text-align: center;
+	padding-top: 15px;
+	margin-bottom: 30px;
+}
+
+footer a {
+	color: #000;
+	text-decoration: none;
+}
+
+.error {
+	color: red;
+}

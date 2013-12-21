@@ -21,12 +21,7 @@
         <input type='text' name='from_name' placeholder='name' required>
         <input type='email' name='from_email' placeholder='email' required><br>
     <?php endif; ?>
-    <input type='submit' value='Send'>
-    <?php if(isset($error)): ?>
-        <div class='error'>
-            Did not send. Please double-check your email and name.
-        </div>
-    <?php endif; ?>
+    <input id="contact_btn" type='submit' value='Send'>
     </form>
 
     </div>

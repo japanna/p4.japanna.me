@@ -9,10 +9,13 @@ class users_controller extends base_controller {
         echo "This is the index page";
     }
 
-    public function signup() {
+    public function signup($error = NULL, $source = NULL) {
         # Setup view
             $this->template->content = View::instance('v_users_signup');
             $this->template->title   = "Sign Up";
+
+            # Pass data to the view
+            $this->template->content->source = $source;
 
         # Render template
             echo $this->template;
@@ -273,8 +276,7 @@ contact() sends admin an email from user.
         $items = DB::instance(DB_NAME)->select_rows($q);
 
         # Pass data to the View
-        $this->template->content->items = $items;
-        $this->template->content->error = $error;        
+        $this->template->content->items = $items;      
 
         # Render template
         echo $this->template;
@@ -307,7 +309,7 @@ contact() sends admin an email from user.
             $bcc = "";
             $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
         } 
-         Router::redirect("/gallery/item/$arg");
+        Router::redirect("/gallery/item/$arg");
     }
 
 
