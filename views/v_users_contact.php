@@ -31,7 +31,7 @@
 
     </div>
     <div class ="info">
-        <a href ="/gallery/item/<?=$item['serial_no']?>.jpg"><img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
+        <a href ="/gallery/item/<?=$item['serial_no']?>.jpg"><img class="img_front" src="/uploads/faucets/<?=$item['img_front']?>.jpg" alt="<?=$item['serial_no']?> <?=$item['color']?> front"></a>
         <h1><?=$item['color']?></h1>
         <h2><?=$item['serial_no']?></h2>
         <p>$<?=$item['price']?> USD </p>
