@@ -294,7 +294,7 @@ contact() sends admin an email from user.
             $body = $_POST['mail'];
             $cc  = "";
             $bcc = "";
-            ########## $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+            $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
         }
         # else user is not logged in
         else {
@@ -305,7 +305,7 @@ contact() sends admin an email from user.
             $body = $_POST['mail'];
             $cc  = "";
             $bcc = "";
-            ########## $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
+            $email = Email::send($to, $from, $subject, $body, false, $cc, $bcc);
         } 
          Router::redirect("/gallery/item/$arg");
     }
