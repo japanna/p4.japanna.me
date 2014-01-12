@@ -27,8 +27,3 @@ JavaScript:
 - favorite/un-favorite symbols appearing on mouseover
 - "number of items"-header shown in gallery
 - email sent confirmation (when contacting gallery via site)
-
-Additional info:
-- to upload items you need the following admin credentials
-- email: secret@secret
-- pwd: secret
